@@ -1,65 +1,65 @@
 # CsYBot
 
-CsYBot, Discord sunuculari icin gelismis moderasyon ve panel ozellikleri sunan, shard destekli bir bot ve web panel projesidir. Bu depo; bot cekirdegi, web panel, komutlar, event'ler ve MongoDB tabanli veri katmanini birlikte icerir.
+CsYBot is a shard-enabled Discord bot and web panel project that provides advanced moderation and panel features for Discord servers. This repository includes the bot core, web panel, commands, events, and a MongoDB-based data layer.
 
-## Ozellikler
-- Shard destekli Discord bot altyapisi
+## Features
+- Shard-enabled Discord bot infrastructure
 - Web panel (Express + EJS)
-- OAuth2 ile Discord girisi
-- Top.gg oy takibi ve webhook bildirimleri
-- Uptime kontrolu ve API entegrasyonlari
-- Dil dosyalari ile coklu dil destegi
+- Discord login with OAuth2
+- Top.gg vote tracking and webhook notifications
+- Uptime monitoring and API integrations
+- Multi-language support via language files
 
-## Teknoloji
+## Technology
 - Node.js
 - discord.js v13
 - Express, EJS
 - MongoDB (Mongoose)
 - Passport (Discord OAuth)
 
-## Kurulum
-1. Depoyu klonlayin.
-2. Bagimliliklari kurun:
+## Installation
+1. Clone the repository.
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Ortam degiskenlerini ayarlayin (ornegin `.env`):
+3. Set environment variables (for example, `.env`):
 
 ```bash
-# zorunlu
+# required
 PORT=3000
 mongodb=mongodb+srv://<user>:<pass>@<cluster>/<db>
 token=DISCORD_BOT_TOKEN
 secret=DISCORD_OAUTH_CLIENT_SECRET
 
-# opsiyonel / entegrasyonlar
+# optional / integrations
 TOPGG_TOKEN=
 TOPGG_PASS=
 RECAPTCHA_SECRET=
 RECAPTCHA_PUBLIC=
 ```
 
-4. `config.js` icindeki placeholder alanlarini kendi degerlerinizle guncelleyin.
+4. Update the placeholder fields in `config.js` with your own values.
 
-## Calistirma
+## Run
 ```bash
 npm start
 ```
 
-Bu komut `shard.js` uzerinden shard yonetimini baslatir. Web panel, shard 0 uzerinden ayaga kalkar.
+This command starts shard management through `shard.js`. The web panel starts on shard 0.
 
-## Dizin Yapisi (kisa)
-- `commands/` Discord komutlari
-- `events/` Discord event handler'lari
-- `functions/` ortak fonksiyonlar / yardimcilar
-- `views/` web panel ve API katmani
-- `databases/` MongoDB modelleri ve veri erisimi
+## Directory Structure (short)
+- `commands/` Discord commands
+- `events/` Discord event handlers
+- `functions/` shared functions/helpers
+- `views/` web panel and API layer
+- `databases/` MongoDB models and data access
 
-## Guvenlik Notlari
-- Gercek token/secret degerlerini repoya koymayin. `config.js` ve `.env` bilgilerini gizli tutun.
-- `views/libs/global.js` icinde sabit session secret bulunuyor. Bunu ortam degiskeni yapmaniz onerilir.
+## Security Notes
+- Do not commit real token/secret values to the repository. Keep `config.js` and `.env` values private.
+- There is a hardcoded session secret in `views/libs/global.js`. It is recommended to move it to an environment variable.
 
-## Lisans
+## License
 MIT
